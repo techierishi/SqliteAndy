@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class StudentDetail extends Activity {
 
 	TextView student_name;
 	TextView student_marks;
+	ImageView stu_imageView;
 	Button student_update;
 	private ArrayList<Student> items = new ArrayList<Student>();
 
@@ -39,6 +41,7 @@ public class StudentDetail extends Activity {
 
 		student_name.setText("" + items.get(0).getStu_name());
 		student_marks.setText("" + items.get(0).getStu_marks());
+		stu_imageView.setImageBitmap(CC.stringToBitMap(items.get(0).getStu_img()));
 
 		student_update.setOnClickListener(new OnClickListener() {
 
@@ -56,6 +59,7 @@ public class StudentDetail extends Activity {
 
 		student_name = (TextView) findViewById(R.id.student_name);
 		student_marks = (TextView) findViewById(R.id.student_marks);
+		stu_imageView = (ImageView) findViewById(R.id.stu_imageView);
 
 		student_update = (Button) findViewById(R.id.student_update);
 	}

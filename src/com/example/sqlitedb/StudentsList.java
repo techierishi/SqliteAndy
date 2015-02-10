@@ -7,7 +7,10 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -16,6 +19,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -180,6 +184,7 @@ public class StudentsList extends Activity {
 		class ViewHolder {
 			TextView stu_name;
 			TextView stu_marks;
+			ImageView stu_img;
 		}
 
 		@Override
@@ -194,6 +199,8 @@ public class StudentsList extends Activity {
 						.findViewById(R.id.stu_name);
 				holder.stu_marks = (TextView) convertView
 						.findViewById(R.id.stu_marks);
+				holder.stu_img = (ImageView) convertView
+						.findViewById(R.id.stu_img);
 
 				convertView.setTag(R.layout.stu_list_row, holder);
 			} else {
@@ -203,7 +210,7 @@ public class StudentsList extends Activity {
 
 			holder.stu_name.setText("" + items.get(position).getStu_name());
 			holder.stu_marks.setText("" + items.get(position).getStu_marks());
-
+			holder.stu_img.setImageBitmap(CC.stringToBitMap(items.get(position).getStu_img()));
 			return convertView;
 		}
 	}
@@ -215,5 +222,7 @@ public class StudentsList extends Activity {
 		items = getAllStudents();
 		mAdapter.changeData(items);
 	}
+	
+	
 
 }

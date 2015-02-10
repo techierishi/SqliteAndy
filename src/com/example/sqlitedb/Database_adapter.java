@@ -56,6 +56,7 @@ public class Database_adapter {
 			ContentValues cv = new ContentValues();
 			cv.put("name", stu_obj.getStu_name());
 			cv.put("marks", stu_obj.getStu_marks());
+			cv.put("stu_img", stu_obj.getStu_img());
 
 			mDb.insert("stu", null, cv);
 			Log.d(LOGTAG, "informationsaved");
@@ -75,7 +76,8 @@ public class Database_adapter {
 			ContentValues cv = new ContentValues();
 			cv.put("name", stu_obj.getStu_name());
 			cv.put("marks", stu_obj.getStu_marks());
-
+			cv.put("stu_img", stu_obj.getStu_img());
+			
 			mDb.update("stu", cv, "id " + "=" + stu_obj.getStu_id(), null);
 			Log.d(LOGTAG, "informationsaved");
 			return true;
@@ -111,6 +113,7 @@ public class Database_adapter {
 				hm.setStu_id(cursor.getInt(0));
 				hm.setStu_name((cursor.getString(1)));
 				hm.setStu_marks("" + cursor.getInt(2));
+				hm.setStu_img(""+cursor.getString(3));
 
 				arr_list.add(hm);
 

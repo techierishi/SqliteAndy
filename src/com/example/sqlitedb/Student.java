@@ -5,6 +5,8 @@ public class Student {
 	private int stu_id;
 	private String stu_name;
 	private String stu_marks;
+	private String stu_img;
+	
 
 	public int getStu_id() {
 		return stu_id;
@@ -28,6 +30,14 @@ public class Student {
 
 	public void setStu_marks(String stu_marks) {
 		this.stu_marks = stu_marks;
+	}
+
+	public String getStu_img() {
+		return stu_img;
+	}
+
+	public void setStu_img(String stu_img) {
+		this.stu_img = stu_img;
 	}
 
 	@Override

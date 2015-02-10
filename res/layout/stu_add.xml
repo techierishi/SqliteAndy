@@ -33,6 +33,8 @@
                 android:imeOptions="actionNext"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp" />
+            
+            <include layout="@layout/attach_img_file" />
 
             <Button
                 android:id="@+id/student_add"

@@ -2,7 +2,6 @@ package com.example.sqlitedb;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class AddStudent extends Activity {
+public class AddStudent extends ImageChooserActivity {
 
 	EditText student_name;
 	EditText student_marks;
@@ -26,6 +25,7 @@ public class AddStudent extends Activity {
 
 		setContentView(R.layout.stu_add);
 
+		super.fakeOnCreate();
 		initViews();
 
 		Bundle extra = getIntent().getExtras();
@@ -84,6 +84,8 @@ public class AddStudent extends Activity {
 		Student stu_obj = new Student();
 		stu_obj.setStu_name("" + student_name_val);
 		stu_obj.setStu_marks("" + student_marks_val);
+		
+		stu_obj.setStu_img("" + imageViewName.getText());
 
 		if (editmode) {
 
